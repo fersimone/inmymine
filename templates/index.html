@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - {{ cv.nom }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>{{ cv.nom }}</h1>
+            <p class="titre">{{ cv.titre }}</p>
+            <div class="contact">
+                <span>📧 {{ cv.contact.email }}</span>
+                <span>🛜 Discord : {{ cv.contact.discord }}</span>
+                <span><a href="{{ cv.contact.linkedin }}" target="_blank">LinkedIn</a></span>
+                <span><a href="{{ cv.contact.github }}" target="_blank">GitHub</a></span>
+            </div>
+        </header>
+
+        <!-- Présentation -->
+        <section class="section">
+            <h2>À propos</h2>
+            {% for para in cv.presentation %}
+                <p>{{ para }}</p>
+            {% endfor %}
+        </section>
+
+        <!-- Expériences -->
+        <section class="section">
+            <h2>Expériences Professionnelles</h2>
+            {% for exp in cv.experiences %}
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <h3>{{ exp.poste }}</h3>
+                        <span class="periode">{{ exp.periode }}</span>
+                    </div>
+                    <p class="entreprise">{{ exp.entreprise }}</p>
+                    <ul>
+                        {% for mission in exp.missions %}
+                            <li>{{ mission }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p class="technos"><strong>Technos :</strong> {{ exp.technos }}</p>
+                </div>
+            {% endfor %}
+        </section>
+
+        <!-- Compétences -->
+        <div class="two-columns">
+            <section class="section">
+                <h2>Hard Skills</h2>
+                <ul>
+                    {% for skill in cv.hard_skills %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2>Soft Skills</h2>
+                <ul>
+                    {% for skill in cv.soft_skills %}
+                        <li>{{ skill }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+
+        <!-- Langues -->
+        <section class="section">
+            <h2>Langues</h2>
+            <ul>
+                {% for langue in cv.langues %}
+                    <li>{{ langue }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Formations -->
+        <section class="section">
+            <h2>Formations</h2>
+            {% for formation in cv.formations %}
+                <div class="formation-item">
+                    <div class="formation-header">
+                        <h3>{{ formation.diplome }}</h3>
+                        <span class="periode">{{ formation.periode }}</span>
+                    </div>
+                    <p class="ecole">{{ formation.ecole }}</p>
+                    <p class="details">{{ formation.details }}</p>
+                </div>
+            {% endfor %}
+        </section>
+
+        <!-- Projets -->
+        <section class="section">
+            <h2>Projets Data</h2>
+            {% for projet in cv.projets %}
+                <div class="projet-item">
+                    <h3>{{ projet.nom }}</h3>
+                    <p>{{ projet.description }}</p>
+                    <ul>
+                        {% for mission in projet.missions %}
+                            <li>{{ mission }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </section>
+
+        <!-- Certifications -->
+        <section class="section">
+            <h2>Certifications</h2>
+            <ul>
+                {% for cert in cv.certifications %}
+                    <li>{{ cert }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

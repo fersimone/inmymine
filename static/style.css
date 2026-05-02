@@ -1,0 +1,263 @@
+/* ===== General Styling ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* ===== Header ===== */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.header .titre {
+    font-size: 1.3em;
+    font-style: italic;
+    margin-bottom: 20px;
+    opacity: 0.95;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.95em;
+}
+
+.contact a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.contact a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* ===== Sections ===== */
+.section {
+    padding: 30px 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.section:last-child {
+    border-bottom: none;
+}
+
+.section h2 {
+    font-size: 1.8em;
+    color: #667eea;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.section p {
+    margin-bottom: 10px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.section li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: #555;
+}
+
+.section li:before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* ===== Expériences ===== */
+.exp-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-left: 4px solid #667eea;
+    padding-left: 20px;
+}
+
+.exp-item:last-child {
+    border-left: 4px solid #667eea;;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.exp-header h3 {
+    font-size: 1.2em;
+    color: #333;
+}
+
+.periode {
+    font-size: 0.9em;
+    color: #999;
+    font-style: italic;
+}
+
+.entreprise {
+    color: #667eea;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.technos {
+    margin-top: 10px;
+    font-size: 0.95em;
+    color: #666;
+}
+
+/* ===== Formations ===== */
+.formation-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 5px;
+    border-left: 4px solid #764ba2;
+}
+
+.formation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 5px;
+}
+
+.formation-header h3 {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.ecole {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.details {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+/* ===== Projets ===== */
+.projet-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f0f4ff;
+    border-radius: 5px;
+    border-left: 4px solid #667eea;
+}
+
+.projet-item h3 {
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.projet-item p {
+    font-size: 0.95em;
+    color: #666;
+}
+
+/* ===== Two Columns Layout ===== */
+.two-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.two-columns .section {
+    border-right: 1px solid #eee;
+}
+
+.two-columns .section:nth-child(2) {
+    border-right: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .container {
+        border-radius: 0;
+    }
+
+    .header {
+        padding: 25px;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header .titre {
+        font-size: 1.1em;
+    }
+
+    .contact {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .exp-header,
+    .formation-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .periode {
+        margin-top: 5px;
+    }
+
+    .two-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .two-columns .section {
+        border-right: none;
+    }
+}
